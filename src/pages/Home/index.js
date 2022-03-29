@@ -6,13 +6,14 @@ import {
   Button
 } from 'react-native'
 
-import auth from '@react-native-firebase/auth'
 import { Header } from '../../components/Header';
+import { NewTask } from '../../components/NewTask';
 
 export function Home(){
   return (
     <View style={styles.container} >
       <Header />
+      <NewTask />
       <Text> Home </Text>
     </View>
   )
