@@ -7,10 +7,12 @@ import {
 } from 'react-native'
 
 import auth from '@react-native-firebase/auth'
+import { Header } from '../../components/Header';
 
 export function Home(){
   return (
     <View style={styles.container} >
+      <Header />
       <Text> Home </Text>
       <Button title="sair" onPress={() => auth().signOut()} />
     </View>
