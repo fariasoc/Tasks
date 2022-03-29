@@ -14,7 +14,6 @@ export function Home(){
     <View style={styles.container} >
       <Header />
       <Text> Home </Text>
-      <Button title="sair" onPress={() => auth().signOut()} />
     </View>
   )
 }
