@@ -5,7 +5,7 @@ import {
   Button,
   TextInput,
   Image,
-  TouchableOpacity, 
+  TouchableOpacity,
   Alert
 } from 'react-native'
 
@@ -21,33 +21,52 @@ export function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordIsVisible, setPasswordIsVisible] = useState(false)
-  const [ loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  function logon(){
-    if(email === '' || password === ''){
+  function logon() {
+    if (email === '' || password === '') {
       Alert.alert('Algo deu errado', 'Preencha todos os campos primeiro!')
-      return; 
+      return;
     }
 
     auth().createUserWithEmailAndPassword(email, password)
-    .catch(error => (
-      Alert.alert(error.code, error.message)
-    ))
+      .catch(error => (
+        Alert.alert(error.code, error.message)
+      ))
 
   }
 
-  function login(){
-    if(email === '' || password === ''){
+  function login() {
+    if (email === '' || password === '') {
       Alert.alert('Algo deu errado', 'Preencha todos os campos primeiro!')
-      return; 
+      setLoading(false)
+      return;
     }
 
     auth().signInWithEmailAndPassword(email, password)
-    .catch(error => {
-      console.log(error)
-    })
+      .catch(error => {
+        if (error.code === 'auth/wrong-password') (
+          Alert.alert('Algo deu errado', 'Senha alterada. Agora você pode fazer o login com sua nova senha')
+        )
+      })
 
-  } 
+    setLoading(false)
+
+  }
+
+  function resetPassword() {
+
+    if (email === '') {
+      Alert.alert('Algo deu errado', 'Preencha o e-mail para o envio do link de redefinição de senha')
+      return
+    }
+
+    auth().sendPasswordResetEmail(email)
+      .then(() => {
+        Alert.alert('Senha enviada', 'O e-mail para redefinição de senha foi enviado com sucesso')
+      })
+      .catch(error => console.log(error));
+  }
 
   return (
     <View style={styles.container}>
@@ -85,16 +104,18 @@ export function Login() {
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={resetPassword}
+      >
         <Text style={styles.TextResetPassword} > Esqueceu a senha? </Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.containerButtonLogin} 
+      <TouchableOpacity
+        style={styles.containerButtonLogin}
         onPress={login}
-      > 
+      >
         <Text style={styles.textButtonLogin}> ENTRAR </Text>
       </TouchableOpacity>
-      <TouchableOpacity 
+      <TouchableOpacity
         onPress={logon}
       >
         <Text style={styles.TextResetPassword} > Criar uma conta </Text>
