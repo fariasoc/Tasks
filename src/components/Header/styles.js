@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 20,
     paddingVertical: 20,
-    backgroundColor: colors.BACKGROUND_INPUT,
+    backgroundColor: '#050517',
     marginBottom: 30, 
     flexDirection: 'row', 
     justifyContent: 'space-between',
@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
       flexDirection: 'row'
   }, 
   title: {
-    color: colors.PLACEHOLDER_TEXT_COLOR,
+    color: 'white',
     fontFamily: fonts.BOLD,
     fontSize: 25
   }

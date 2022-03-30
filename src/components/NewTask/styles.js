@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 5,
   },
   containerButtons: {
-    backgroundColor: 'red',
+    //backgroundColor: 'red',
     flexDirection: 'row',
     width: '100%',
     marginTop: 20,

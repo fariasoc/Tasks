@@ -40,7 +40,9 @@ export function Task() {
       <TouchableOpacity
         style={styles.container}
       >
-        <Text> Minha primeira tarefa </Text>
+        <Text style={styles.title} > 
+          Minha primeira tarefa 
+        </Text>
       </TouchableOpacity>
 
     </Swipeable>

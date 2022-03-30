@@ -40,7 +40,7 @@ export function Login() {
     if (email === '' || password === '') {
       Alert.alert('Algo deu errado', 'Preencha todos os campos primeiro!')
       setLoading(false)
-      return;
+      return
     }
 
     auth().signInWithEmailAndPassword(email, password)
@@ -63,7 +63,7 @@ export function Login() {
 
     auth().sendPasswordResetEmail(email)
       .then(() => {
-        Alert.alert('Senha enviada', 'O e-mail para redefinição de senha foi enviado com sucesso')
+        Alert.alert('E-mail enviado', 'O e-mail para redefinição de senha foi enviado com sucesso')
       })
       .catch(error => console.log(error));
   }

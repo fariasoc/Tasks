@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import { auth } from '@react-native-firebase/auth'
+import  auth  from '@react-native-firebase/auth'
 import { styles } from './styles';
 import { colors } from '../../styles';
 
