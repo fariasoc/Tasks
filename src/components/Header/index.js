@@ -9,15 +9,17 @@ import { auth } from '@react-native-firebase/auth'
 import { styles } from './styles';
 import { colors } from '../../styles';
 
-export function Header() {
+export function Header({newTaskIsVisible, setNewTaskIsVisible }) {
   return (
     <View style={styles.container} >
       <Text style={styles.title} > Tarefas </Text>
 
       <View style={styles.containerRight} >
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={ () => setNewTaskIsVisible(!newTaskIsVisible)}
+        >
         <Feather
-          name="plus"
+          name={newTaskIsVisible ? 'x' : 'plus' }
           size={30}
           color={colors.PLACEHOLDER_TEXT_COLOR}
         />

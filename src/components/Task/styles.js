@@ -3,6 +3,13 @@ import { colors, fonts } from '../../styles'
 
 export const styles = StyleSheet.create({
   container: {
+
+    height: 80,
+    borderRadius: 7,
+    alignItems: 'center', 
+    justifyContent: 'center',
+    padding: 10,
+
     width: '100%',
     backgroundColor: '#3B5368', 
     paddingVertical: 10,

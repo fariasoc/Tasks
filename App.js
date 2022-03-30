@@ -5,6 +5,7 @@ import { Login } from './src/pages/Login'
 import { colors } from './src/styles'
 import { useFonts, JosefinSans_400Regular, JosefinSans_700Bold } from '@expo-google-fonts/josefin-sans'
 import AppLoading from 'expo-app-loading'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { Routes } from './src/routes'
 
 export default function App() {
@@ -19,13 +20,13 @@ export default function App() {
   }
 
   return (  
-    <>
+    <GestureHandlerRootView style={{ flex: 1 }} >
       <StatusBar
         backgroundColor={colors.BACKGROUND}
         barStyle='light-content'
       />
       <Routes />
-    </>
+    </GestureHandlerRootView>
     
   );
 }
